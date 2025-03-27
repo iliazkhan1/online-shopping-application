@@ -1,0 +1,26 @@
+@if (phone) {
+    <div class="phone-detail">
+      <img [src]="phone.imageUrl" [alt]="phone.name">
+      <div class="phone-info">
+        <h2>{{ phone.name }}</h2>
+        <p class="price">${{ phone.price }}</p>
+        <p class="description">{{ phone.description }}</p>
+        
+        <div class="specs">
+          <h3>Specifications:</h3>
+          <ul>
+            @for (spec of phone.specifications; track spec) {
+              <li>{{ spec }}</li>
+            }
+          </ul>
+        </div>
+        
+        <a routerLink="/" class="back-button">← Back to Products</a>
+      </div>
+    </div>
+  } @else {
+    <div class="not-found">
+      <h2>Product not found</h2>
+      <a routerLink="/" class="back-button">← Back to Products</a>
+    </div>
+  }
